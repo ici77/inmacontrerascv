@@ -1,0 +1,67 @@
+name: Compilar y publicar en Hostinger
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Compilar Astro y publicar dist
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Validar Astro y TypeScript
+        run: npm run check
+
+      - name: Generar la versión estática
+        run: npm run build
+
+      - name: Verificar los archivos esenciales
+        run: |
+          test -f dist/index.html
+          test -f dist/contacto/index.html
+
+      - name: Configurar la identidad SSH del servidor
+        env:
+          HOSTINGER_SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          HOSTINGER_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$HOSTINGER_SSH_KEY" > ~/.ssh/id_ed25519
+          printf '%s\n' "$HOSTINGER_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_ed25519
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Publicar únicamente la compilación estática
+        env:
+          SSH_HOST: 45.87.81.226
+          SSH_PORT: '65002'
+          SSH_USER: u998873880
+          DEPLOY_PATH: /home/u998873880/domains/inmacontreras.com/public_html/
+        run: |
+          set -o pipefail
+          SSH_COMMAND="ssh -i ~/.ssh/id_ed25519 -p $SSH_PORT -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes"
+          $SSH_COMMAND "$SSH_USER@$SSH_HOST" "test -d '$DEPLOY_PATH'"
+          tar -C dist --exclude='./api' --exclude='./.well-known' --exclude='./.htaccess' -czf - . | \
+            $SSH_COMMAND "$SSH_USER@$SSH_HOST" "umask 022; tar -xzf - --no-same-owner --no-same-permissions -C '$DEPLOY_PATH'"
