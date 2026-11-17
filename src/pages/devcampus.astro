@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const learningCycle = [
+  {
+    number: '01',
+    title: 'Escuchar',
+    text: 'La escucha activa es fundamental para saber el punto de partida del grupo y cuáles son sus expectativas. ',
+  },
+  {
+    number: '02',
+    title: 'Explicar',
+    text: 'Convertir conceptos técnicos en explicaciones claras, ordenadas y aplicables.',
+  },
+  {
+    number: '03',
+    title: 'Practicar',
+    text: 'Aprender construyendo: ejercicios, retos y pequeños proyectos con sentido.',
+  },
+  {
+    number: '04',
+    title: 'Mejorar',
+    text: 'Revisar lo aprendido y actualizar los materiales con cada nueva experiencia de aula.',
+  },
+];
+
+const resources = [
+  'Manuales de HTML, CSS, JavaScript y Node.js.',
+  'Guías interactivas de Git y del entorno de trabajo.',
+  'Ejercicios, retos y casos de uso para practicar desarrollo web.',
+  'Recursos sobre frameworks y proyectos aplicados.',
+];
+
+const repositories = [
+  {
+    name: 'Actividades y recursos',
+    description: 'Repositorio propio de actividades y recursos para el aprendizaje práctico.',
+    url: 'https://inma2709.github.io/inmacontreras.github.io/',
+    action: 'Abrir recursos',
+  },
+  {
+    name: 'Manual completo de JavaScript',
+    description: 'Manual online con contenidos y ejercicios para profundizar en JavaScript.',
+    url: 'https://curso-completo-js.vercel.app/',
+    action: 'Abrir manual',
+  },
+  {
+    name: 'Guía de WordPress',
+    description: 'Manual online para aprender a crear y gestionar sitios web con WordPress.',
+    url: 'https://guia-wp.vercel.app/',
+    action: 'Abrir manual',
+  },
+];
+---
+
+<BaseLayout
+  title="DevCampus | Diseño Didáctico y Recursos Educativos"
+  description="DevCampus es el proyecto de diseño didáctico y recursos educativos de Inma Contreras para aprender desarrollo web mediante práctica guiada y proyectos reales."
+>
+  <section class="container grid gap-10 py-18 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:py-28">
+    <div>
+      <p class="eyebrow">Proyecto personal · diseño didáctico y desarrollo web</p>
+      <h1 class="display mt-5 max-w-4xl text-5xl text-earth sm:text-6xl">
+        DevCampus: un manual propio creado por y para la formación para el empleo. 
+      </h1>
+      <p class="mt-7 max-w-2xl text-xl font-medium text-earth">
+        Un espacio digital para aprender desarrollo web construyendo, probando y mejorando proyectos reales.
+      </p>
+      <p class="mt-5 max-w-2xl text-lg text-[#66412d]">
+        DevCampus reúne manuales, ejercicios, retos y recursos creados para acompañar el aprendizaje técnico de forma clara, práctica y progresiva.
+      </p>
+      <p class="mt-4 max-w-2xl text-lg text-[#66412d]">
+        No es un contenido cerrado: evoluciona a partir de las necesidades que aparecen en el aula y de los proyectos que el alumnado construye.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="https://devcampus.es" class="inline-flex min-h-11 items-center gap-2 rounded-full bg-terracotta px-6 py-3 font-semibold text-white no-underline transition-colors hover:bg-clay" target="_blank" rel="noopener noreferrer">
+          Explorar DevCampus <span aria-hidden="true">↗</span>
+        </a>
+        <a href="#origen" class="inline-flex min-h-11 items-center rounded-full border border-earth px-6 py-3 font-semibold text-earth no-underline transition-colors hover:bg-beige">
+          Conocer el origen
+        </a>
+      </div>
+    </div>
+
+    <aside class="rounded-[2rem] border border-sand bg-beige p-7 sm:p-10" aria-label="Resumen de DevCampus">
+      <p class="font-display text-3xl text-earth">Aprender haciendo</p>
+      <div class="mt-7 space-y-5 border-l-2 border-terracotta pl-5 text-[#644b3e]">
+        <p>Manuales que acompañan cada paso sin perder el contexto práctico.</p>
+        <p>Actividades para pasar de la explicación a la construcción de proyectos.</p>
+        <p>Un recurso que se revisa y mejora con la experiencia docente.</p>
+      </div>
+      <a href="https://github.com/inma2709/devcapus" class="mt-8 inline-flex font-semibold text-clay no-underline hover:text-terracotta" target="_blank" rel="noopener noreferrer">
+        Ver repositorio del proyecto <span class="ml-2" aria-hidden="true">↗</span>
+      </a>
+    </aside>
+  </section>
+
+  <section id="origen" class="scroll-mt-24 border-y border-sand/60 bg-beige/50 py-18" aria-labelledby="origen-title">
+    <div class="container grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
+      <div>
+        <p class="eyebrow">El origen</p>
+        <h2 id="origen-title" class="display mt-4 text-4xl text-earth">Un recurso nacido de la práctica docente</h2>
+      </div>
+      <div class="max-w-3xl text-lg text-[#644b3e]">
+        <p>DevCampus nace de una idea sencilla: aprender desarrollo web resulta más claro cuando la teoría se conecta desde el principio con soluciones a problemas reales. Nos llevamos el código a la calle y hacemos que los alumnos entiendan cómo la programación resuelve problemas reales..</p>
+        <p class="mt-4">Resolvemos problemas concretos partiendo de la teoria y haciendola accesible a todos los alumnos sea cuál sea su punto de partida. Por eso los contenidos se organizan para avanzar paso a paso, con ejemplos que ayudan a entender, practicar y ganar autonomía.</p>
+        <p class="mt-4">El proyecto también refleja una forma de enseñar: escuchar, practicar y avanzar hacia una meta común: mejorar la empleabilidad del alumnado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-20" aria-labelledby="metodo-title">
+    <p class="eyebrow">Metodología</p>
+    <h2 id="metodo-title" class="display mt-4 max-w-3xl text-4xl text-earth">Un ciclo de aprendizaje que se mantiene abierto</h2>
+    <div class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-sand bg-sand sm:grid-cols-2 lg:grid-cols-4">
+      {learningCycle.map((step) => (
+        <article class="bg-cream p-7">
+          <p class="text-sm font-bold tracking-widest text-terracotta">{step.number}</p>
+          <h3 class="font-display mt-4 text-2xl text-earth">{step.title}</h3>
+          <p class="mt-3 text-[#644b3e]">{step.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-y border-sand/60 bg-beige/50 py-20" aria-labelledby="recursos-title">
+    <div class="container grid gap-10 lg:grid-cols-[.85fr_1.15fr]">
+      <div>
+        <p class="eyebrow">Recursos del proyecto</p>
+        <h2 id="recursos-title" class="display mt-4 text-4xl text-earth">Materiales para trabajar con ellos , no solo para consultar</h2>
+        <p class="mt-5 text-lg text-[#644b3e]">El repositorio de DevCampus reúne estos recursos de trabajo y los organiza para favorecer una práctica progresiva.</p>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-2">
+        {resources.map((resource) => (
+          <li class="rounded-xl border border-sand bg-cream p-5 text-earth">
+            <span class="mr-2 font-bold text-terracotta" aria-hidden="true">→</span>{resource}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="container py-20" aria-labelledby="tecnologia-title">
+    <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
+      <div>
+        <p class="eyebrow">Tecnología</p>
+        <h2 id="tecnologia-title" class="display mt-4 text-4xl text-earth">Una plataforma web propia y mantenible</h2>
+      </div>
+      <div>
+        <p class="text-lg text-[#644b3e]">DevCampus está desarrollado con una arquitectura web moderna para mantener el portal y sus recursos de forma ágil.</p>
+        <ul class="mt-6 flex flex-wrap gap-3" aria-label="Tecnologías verificadas de DevCampus">
+          {['React', 'Vite', 'Tailwind CSS', 'React Router', 'JavaScript'].map((technology) => (
+            <li class="rounded-full border border-sand bg-beige px-4 py-2 text-sm font-semibold text-earth">{technology}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-sand/60 bg-beige/50 py-20" aria-labelledby="github-title">
+    <div class="container">
+      <p class="eyebrow">GitHub como complemento</p>
+      <h2 id="github-title" class="display mt-4 max-w-3xl text-4xl text-earth">Otros repositorios de aprendizaje y práctica</h2>
+      <p class="mt-5 max-w-3xl text-lg text-[#644b3e]">DevCampus es el proyecto principal. Estos repositorios públicos muestran materiales y ejercicios que complementan ese trabajo.</p>
+      <div class="mt-9 grid gap-5 lg:grid-cols-3">
+        {repositories.map((repository) => (
+          <article class="flex flex-col rounded-2xl border border-sand bg-cream p-6">
+            <h3 class="font-display text-2xl text-earth">{repository.name}</h3>
+            <p class="mt-3 flex-1 text-[#644b3e]">{repository.description}</p>
+            <a href={repository.url} class="mt-6 inline-flex font-semibold text-clay no-underline hover:text-terracotta" target="_blank" rel="noopener noreferrer">
+              {repository.action ?? 'Abrir en GitHub'} <span class="ml-2" aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+      <a href="https://github.com/inma2709" class="mt-8 inline-flex rounded-full border border-earth px-5 py-3 font-semibold text-earth no-underline transition-colors hover:bg-beige" target="_blank" rel="noopener noreferrer">Ver perfil de GitHub <span class="ml-2" aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="container py-20" aria-labelledby="cierre-title">
+    <div class="rounded-[2rem] bg-earth px-7 py-12 text-cream sm:px-12">
+      <p class="eyebrow text-sand">Proyecto en evolución</p>
+      <h2 id="cierre-title" class="display mt-4 max-w-3xl text-4xl">DevCampus forma parte de mi manera de entender la docencia tecnológica.</h2>
+      <p class="mt-5 max-w-2xl text-lg text-[#f7dfc5]">Diseñar recursos, probarlos en el aula y mejorarlos para que el aprendizaje sea más claro, práctico y útil.</p>
+      <a href="/experiencia/" class="mt-8 inline-flex min-h-11 items-center rounded-full bg-terracotta px-6 py-3 font-semibold text-white no-underline transition-colors hover:bg-clay">Conocer mi experiencia docente <span class="ml-2" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</BaseLayout>
+
+

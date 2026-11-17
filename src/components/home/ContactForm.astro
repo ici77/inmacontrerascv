@@ -1,0 +1,47 @@
+---
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? '';
+---
+
+<form class="grid gap-5 rounded-2xl border border-sand/80 bg-white p-6 shadow-sm sm:p-8" data-contact-form data-endpoint={endpoint} aria-describedby="form-status">
+  <div class="grid gap-5 sm:grid-cols-2">
+    <label class="grid gap-2 text-sm font-semibold text-earth">Nombre<input required name="name" maxlength="100" autocomplete="name" class="min-h-11 rounded-lg border border-sand bg-cream px-3 py-2 font-normal text-earth" /></label>
+    <label class="grid gap-2 text-sm font-semibold text-earth">Correo electrónico<input required type="email" name="email" maxlength="254" autocomplete="email" class="min-h-11 rounded-lg border border-sand bg-cream px-3 py-2 font-normal text-earth" /></label>
+  </div>
+  <label class="grid gap-2 text-sm font-semibold text-earth">Empresa o centro de formación <span class="font-normal text-[#705548]">(opcional)</span><input name="organisation" maxlength="150" autocomplete="organization" class="min-h-11 rounded-lg border border-sand bg-cream px-3 py-2 font-normal text-earth" /></label>
+  <label class="grid gap-2 text-sm font-semibold text-earth">Motivo del contacto<select required name="reason" class="min-h-11 rounded-lg border border-sand bg-cream px-3 py-2 font-normal text-earth"><option value="">Selecciona una opción</option><option>Propuesta de colaboración docente</option><option>Teleformación o tutorización</option><option>Diseño de contenidos educativos</option><option>Desarrollo web o proyecto digital</option><option>Otra consulta</option></select></label>
+  <label class="grid gap-2 text-sm font-semibold text-earth">Cuéntame tu propuesta<textarea required name="message" rows="6" minlength="10" maxlength="5000" class="rounded-lg border border-sand bg-cream px-3 py-2 font-normal text-earth"></textarea></label>
+  <div class="sr-only" aria-hidden="true"><label>Deja este campo vacío <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+  <label class="flex items-start gap-3 text-sm text-earth"><input required type="checkbox" name="privacy" class="mt-1 size-4 accent-terracotta" /><span>He leído la información sobre protección de datos de la <a class="font-semibold text-clay underline hover:text-terracotta" href="/privacidad/">política de privacidad</a>.</span></label>
+  <p class="text-xs leading-relaxed text-[#705548]">Responsable: María Inmaculada Contreras Íñiguez. Finalidad: atender tu consulta o propuesta profesional. Base jurídica: medidas precontractuales solicitadas por la persona interesada o, cuando corresponda, interés legítimo para responder comunicaciones profesionales. Derechos: puedes ejercerlos escribiendo a <a class="underline hover:text-clay" href="mailto:hola@inmacontreras.com">hola@inmacontreras.com</a>.</p>
+  <button type="submit" class="inline-flex min-h-11 w-fit items-center justify-center rounded-full bg-terracotta px-6 py-3 font-semibold text-white transition-colors hover:bg-clay disabled:cursor-not-allowed disabled:opacity-70">Enviar mensaje</button>
+  <p id="form-status" class="min-h-6 text-sm text-[#705548]" data-form-status aria-live="polite"></p>
+</form>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+  const status = form?.querySelector<HTMLElement>('[data-form-status]');
+  const submitButton = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const endpoint = form.dataset.endpoint;
+    if (!endpoint) {
+      if (status) status.textContent = 'No se ha podido enviar el mensaje. Puedes escribirme directamente a hola@inmacontreras.com.';
+      return;
+    }
+    const data = new FormData(form);
+    if (data.get('website')) return;
+    if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Enviando…'; }
+    if (status) status.textContent = '';
+    try {
+      const response = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (!response.ok) throw new Error('Contact request failed');
+      form.reset();
+      if (status) status.textContent = 'Tu mensaje se ha enviado correctamente. Gracias por contactar conmigo.';
+    } catch {
+      if (status) status.textContent = 'No se ha podido enviar el mensaje. Puedes escribirme directamente a hola@inmacontreras.com.';
+    } finally {
+      if (submitButton) { submitButton.disabled = false; submitButton.textContent = 'Enviar mensaje'; }
+    }
+  });
+</script>

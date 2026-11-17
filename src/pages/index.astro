@@ -1,0 +1,538 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// =====================================================
+// COMPETENCIAS DE INTERÉS PARA CENTROS DE FORMACIÓN
+// =====================================================
+
+const strengths = [
+  {
+    number: '01',
+    title: 'Comunicación y dinamización del aula',
+    text: 'Cuento con facilidad para comunicar, explicar contenidos técnicos con claridad y conectar con diferentes perfiles de alumnado. Me implico en crear un ambiente participativo, cercano y que favorezca el aprendizaje.',
+  },
+  {
+    number: '02',
+    title: 'Experiencia en distintas modalidades',
+    text: 'Trabajo en formación presencial, aula virtual y teleformación. Tengo experiencia en impartición, tutorización, seguimiento del alumnado, evaluación y elaboración de recursos didácticos.',
+  },
+  {
+    number: '03',
+    title: 'Formación orientada a la empleabilidad',
+    text: 'Mi experiencia de más de veinte años en el sector bancario me permite conocer de primera mano el entorno empresarial. Procuro que la formación responda a las necesidades profesionales y prepare al alumnado para desenvolverse en el mercado laboral tanto por cuenta ajena como por cuenta propia.',
+  },
+  {
+    number: '04',
+    title: 'Competencia técnica y actualización',
+    text: 'Mantengo una formación continua en desarrollo web, inteligencia artificial y transformación digital. Además, desarrollo proyectos propios que me permiten trabajar con herramientas actuales y mantener mis conocimientos al día.',
+  },
+];
+
+// =====================================================
+// TITULACIONES DESTACADAS
+// =====================================================
+
+const qualifications = [
+  {
+    title: 'Licenciatura en Derecho',
+    detail: 'Especialidad Derecho de la Empresa',
+    entity: 'Universidad de Sevilla',
+  },
+  {
+    title: 'Máster Universitario en Formación del Profesorado',
+    detail: 'Especialidad Geografía e Historia',
+    entity: 'Universitat Internacional Valenciana (VIU)',
+  },
+  {
+    title: 'Máster Universitario en Gestión Administrativa',
+    detail: 'Formación universitaria oficial',
+    entity: 'Universidad Pablo de Olavide',
+  },
+  {
+    title: 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma',
+    detail: 'Formación técnica en programación y desarrollo de software',
+    entity: 'Escuelas Salesianas María Auxiliadora',
+  },
+];
+
+// =====================================================
+// TESTIMONIOS DEL ALUMNADO
+// Conservar las opiniones originales.
+// Verificar autorización antes de publicarlas.
+// =====================================================
+
+const testimonials = [
+  {
+    quote:
+      'Inma transmite calma y confianza. Tiene una forma de trabajar que hace que todos se sientan capaces. Siempre está atenta a quien lo necesita y consigue que el grupo se sienta acompañado.',
+    initials: 'LS',
+    author: 'Laura S.',
+    role: 'Alumna',
+  },
+  {
+    quote:
+      'Aprendes a una velocidad increíble. Son explicaciones sencillas y amenas. Estudiar con ella es avanzar disfrutando, siempre con una actitud positiva. La verdad es que me ha encantado.',
+    initials: 'JM',
+    author: 'Javier M.',
+    role: 'Alumno online',
+  },
+  {
+    quote:
+      'Tiene una empatía natural para entender a las personas. Proactiva, colaborativa y con un entusiasmo contagioso que motiva a la clase.',
+    initials: 'AR',
+    author: 'Ainhoa R.',
+    role: 'Alumna',
+  },
+];
+---
+
+<BaseLayout
+  title="Inma Contreras | Docente de Programación y Desarrollo Web FPE"
+  description="Docente de programación y desarrollo web para Formación Profesional para el Empleo en Sevilla. Colaboración con centros de formación, teleformación y diseño de recursos educativos."
+>
+  <!-- =====================================================
+       1. PRESENTACIÓN PRINCIPAL
+  ====================================================== -->
+
+  <section
+    class="container grid gap-12 py-18 lg:grid-cols-[1.25fr_.75fr] lg:items-center lg:py-28"
+  >
+    <div>
+      <p class="eyebrow">
+        Inma Contreras · Docente de Formación Profesional para el Empleo
+      </p>
+
+      <h1
+        class="display mt-5 max-w-3xl text-5xl text-earth sm:text-6xl"
+      >
+        Docente de programación y desarrollo web para formación profesional.
+      </h1>
+
+      <p class="mt-7 max-w-2xl text-xl font-medium text-earth">
+        Formación presencial, aula virtual y teleformación.
+      </p>
+
+      <p class="mt-5 max-w-2xl text-lg text-[#66412d]">
+        Colaboro con centros de formación y entidades educativas de Sevilla y de toda España impartiendo Formación Profesional para el Empleo (FPE), certificados profesionales y acciones formativas en programación, desarrollo web y competencias digitales.
+      </p>
+
+      <p class="mt-4 max-w-2xl text-lg text-[#66412d]">
+        Combino experiencia profesional, preparación pedagógica y desarrollo tecnológico para ofrecer una enseñanza práctica, cercana y adaptada al alumnado, tanto en aula como en teleformación y mediante recursos educativos propios.
+      </p>
+
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a
+          href="/experiencia/"
+          class="inline-flex min-h-11 items-center gap-2 rounded-full bg-terracotta px-6 py-3 font-semibold text-white no-underline transition-colors hover:bg-clay"
+        >
+          Experiencia profesional
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="/devcampus/"
+          class="inline-flex min-h-11 items-center gap-2 rounded-full border border-earth px-6 py-3 font-semibold text-earth no-underline transition-colors hover:bg-beige"
+        >
+          Descubrir DevCampus
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <p class="mt-5 max-w-2xl text-sm text-[#66412d]">
+        También desarrollo <a href="/devcampus/" class="font-semibold text-clay hover:text-terracotta">DevCampus</a>, un manual digital vivo para aprender desarrollo web mediante práctica guiada.
+      </p>
+    </div>
+
+    <!-- ILUSTRACIÓN PROFESIONAL -->
+
+    <div class="relative mx-auto w-full max-w-md">
+      <div
+        class="aspect-[4/5] overflow-hidden rounded-[2rem] border border-sand bg-beige p-3"
+      >
+        <img
+          src="/pizarra.png"
+          width="1448"
+          height="1086"
+          alt="Ilustración de Inma Contreras impartiendo una clase"
+          class="h-full w-full rounded-[1.4rem] object-cover"
+          fetchpriority="high"
+        />
+      </div>
+
+      <div
+        class="absolute -bottom-4 -left-4 h-24 w-24 rounded-full bg-terracotta/20"
+        aria-hidden="true"
+      ></div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       2. QUÉ PUEDO APORTAR
+  ====================================================== -->
+
+  <section
+    class="border-y border-sand/60 bg-beige/50 py-18"
+    aria-labelledby="aportacion-title"
+  >
+    <div class="container">
+      <p class="eyebrow">
+        Mi aportación profesional
+      </p>
+
+      <h2
+        id="aportacion-title"
+        class="display mt-4 max-w-3xl text-4xl text-earth"
+      >
+        ¿Qué puedo aportar a tu centro de formación?
+      </h2>
+
+      <p class="mt-5 max-w-3xl text-lg text-[#644b3e]">
+        Además de los conocimientos de cada especialidad,
+        considero fundamentales la comunicación activa,
+        la formación planificada y organizada y la capacidad
+        de adaptarse a las necesidades de cada grupo.
+      </p>
+
+      <div class="rule mt-7"></div>
+
+      <div
+        class="mt-9 grid gap-px overflow-hidden rounded-xl border border-sand bg-sand sm:grid-cols-2"
+      >
+        {
+          strengths.map((item) => (
+            <article class="flex flex-col bg-cream p-7">
+              <span
+                class="text-sm font-semibold tracking-widest text-terracotta"
+                aria-hidden="true"
+              >
+                {item.number}
+              </span>
+
+              <h3 class="font-display mt-4 text-2xl text-earth">
+                {item.title}
+              </h3>
+
+              <p class="mt-3 text-[#644b3e]">
+                {item.text}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a
+          href="/experiencia/"
+          class="rounded-full bg-terracotta px-5 py-3 font-semibold text-white no-underline transition-colors hover:bg-clay"
+        >
+          Experiencia profesional
+        </a>
+
+        <a
+          href="/formacion/"
+          class="rounded-full border border-earth px-5 py-3 font-semibold text-earth no-underline transition-colors hover:bg-beige"
+        >
+          Formación 
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       3. EXPERIENCIA PROFESIONAL
+  ====================================================== -->
+
+  <section
+    class="container grid gap-10 py-20 lg:grid-cols-[.75fr_1.25fr]"
+    aria-labelledby="experiencia-title"
+  >
+    <div>
+      <p class="eyebrow">
+        Experiencia profesional
+      </p>
+
+      <h2
+        id="experiencia-title"
+        class="display mt-4 text-4xl text-earth"
+      >
+        Experiencia docente y una trayectoria
+        vinculada al mundo de la empresa.
+      </h2>
+    </div>
+
+    <div class="border-l border-terracotta pl-6 text-lg text-earth">
+      <p>
+        Actualmente desarrollo mi actividad como docente
+        de Formación Profesional para el Empleo,
+        especialmente en programación, desarrollo web
+        y competencias digitales.
+      </p>
+
+      <p class="mt-4">
+        He trabajado en formación presencial y online,
+        realizando tareas de impartición, tutorización,
+        seguimiento y evaluación del alumnado.
+        También elaboro contenidos y actividades
+        adaptados a las distintas acciones formativas.
+      </p>
+
+      <p class="mt-4">
+        Anteriormente desarrollé mi carrera durante
+        más de veinte años en el sector bancario.
+        Esa experiencia me permitió trabajar en
+        atención al cliente, gestión comercial,
+        procedimientos administrativos y resolución
+        de incidencias, en un entorno empresarial
+        exigente y en constante evolución.
+      </p>
+
+      <p class="mt-4">
+        A esta trayectoria se suman mi formación
+        jurídica, administrativa y tecnológica,
+        que amplía las áreas en las que puedo
+        desarrollar mi actividad docente.
+      </p>
+
+      <a
+        class="mt-6 inline-block font-bold text-clay"
+        href="/experiencia/"
+      >
+        Consultar mi trayectoria y acciones formativas
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       4. IMAGEN Y METODOLOGÍA
+  ====================================================== -->
+
+  <section class="container pb-20">
+    <figure
+      class="mx-auto max-w-4xl overflow-hidden rounded-2xl bg-beige"
+    >
+      <img
+        src="/clase.png"
+        width="1448"
+        height="1086"
+        loading="lazy"
+        decoding="async"
+        alt="Ilustración de Inma Contreras explicando contenidos a un grupo de alumnos"
+        class="aspect-[16/8] h-full w-full object-cover"
+      />
+
+      <figcaption class="p-5 text-sm text-earth">
+        Una buena comunicación, un seguimiento cercano
+        y la participación del alumnado son aspectos
+        a los que doy especial importancia en mis clases.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- =====================================================
+       5. FORMACIÓN Y ACREDITACIONES
+  ====================================================== -->
+
+  <section
+    class="container grid gap-10 py-20 lg:grid-cols-[.8fr_1.2fr]"
+    aria-labelledby="formacion-title"
+  >
+    <div>
+      <p class="eyebrow">
+        Formación académica y especialización
+      </p>
+
+      <h2
+        id="formacion-title"
+        class="display mt-4 text-4xl text-earth"
+      >
+        Una formación amplia y en continua actualización.
+      </h2>
+
+      <p class="mt-5 text-[#644b3e]">
+        Soy licenciada en Derecho en la especialidad de empresa. Cuento con el Master de
+        Formación del Profesorado (MAES)  así como con el Master de Gestión Administrativa.
+        Además  tengo el título de Técnico Superior en
+        Desarrollo de Aplicaciones Multiplataforma.
+      </p>
+
+      <p class="mt-4 text-[#644b3e]">
+        He completado esta formación con numerosos cursos y seminarios 
+        en docencia, teleformación, programación,
+        inteligencia artificial, gestión empresarial
+        e igualdad.
+      </p>
+
+      <p class="mt-4 text-[#644b3e]">
+        Mantengo una formación continua para actualizar
+        mis competencias técnicas y ampliar las
+        especialidades en las que puedo colaborar
+        con centros y entidades formativas.
+      </p>
+
+      <a
+        href="/formacion/"
+        class="mt-7 inline-block rounded-full border border-earth px-5 py-3 font-semibold text-earth no-underline transition-colors hover:bg-beige"
+      >
+        Consultar titulaciones y acreditaciones
+      </a>
+    </div>
+
+    <div>
+      <h3 class="font-display mb-4 text-xl text-earth">
+        Titulaciones principales
+      </h3>
+
+      <ul class="divide-y divide-sand border-y border-sand">
+        {
+          qualifications.map((item) => (
+            <li class="py-5">
+              <h4 class="font-semibold text-earth">
+                {item.title}
+              </h4>
+
+              <p class="mt-1 text-sm text-[#644b3e]">
+                {item.detail}
+              </p>
+
+              <p class="mt-1 text-sm text-clay">
+                {item.entity}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       7. TESTIMONIOS
+  ====================================================== -->
+
+  <section
+    class="border-y border-sand/70 bg-beige/60 py-16"
+    aria-labelledby="opiniones-title"
+  >
+    <div class="container">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="eyebrow">
+          Mis alumnos opinan
+        </p>
+
+        <h2
+          id="opiniones-title"
+          class="display mt-4 text-4xl text-earth"
+        >
+          La opinión de quienes han asistido a mis clases.
+        </h2>
+
+        <p class="mt-5 text-[#644b3e]">
+          Estas valoraciones reflejan algunos de
+          los aspectos que el alumnado destaca
+          de mi trabajo como docente.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-5 lg:grid-cols-3">
+        {
+          testimonials.map((testimonial) => (
+            <article
+              class="flex h-full flex-col rounded-2xl bg-cream p-6 shadow-sm"
+            >
+              <span
+                class="font-display text-3xl leading-none text-terracotta"
+                aria-hidden="true"
+              >
+                “
+              </span>
+
+              <blockquote class="mt-2 flex-1 text-earth">
+                {testimonial.quote}
+              </blockquote>
+
+              <div class="mt-6 flex items-center gap-3 border-t border-sand pt-4">
+                <span
+                  class="grid h-10 w-10 place-items-center rounded-full bg-terracotta text-sm font-bold text-white"
+                  aria-hidden="true"
+                >
+                  {testimonial.initials}
+                </span>
+
+                <p class="text-sm">
+                  <span class="block font-bold text-earth">
+                    {testimonial.author}
+                  </span>
+
+                  <span class="text-[#66412d]">
+                    {testimonial.role}
+                  </span>
+                </p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       8. CONTACTO Y COLABORACIÓN
+  ====================================================== -->
+
+  <section
+    id="contacto"
+    class="container grid scroll-mt-24 gap-10 py-20 lg:grid-cols-[.8fr_1.2fr]"
+    aria-labelledby="contacto-title"
+  >
+    <div>
+      <p class="eyebrow">
+        Colaboraciones profesionales
+      </p>
+
+      <h2
+        id="contacto-title"
+        class="display mt-4 text-4xl text-earth"
+      >
+        Hablemos de tu proyecto formativo
+      </h2>
+
+      <p class="mt-5 text-[#644b3e]">
+        Estoy abierta a colaborar con centros de formación,
+        academias, empresas y entidades que desarrollen
+        programas de Formación Profesional para el Empleo
+        y otras acciones de capacitación profesional.
+      </p>
+
+      <p class="mt-4 text-[#644b3e]">
+        Si necesitas una docente para impartición presencial,
+        aula virtual o teleformación, puedes contactar
+        conmigo para consultar mi experiencia,
+        formación y posible participación en tu proyecto.
+      </p>
+
+      <p class="mt-4 text-[#644b3e]">
+        También puedo colaborar en la elaboración
+        de materiales didácticos y recursos
+        para formación tecnológica.
+      </p>
+
+      <div class="mt-7">
+        <a
+          href="/dossier/"
+          class="inline-flex items-center gap-2 font-bold text-clay"
+        >
+          Consultar mi dossier profesional
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <aside class="rounded-2xl border border-sand bg-beige p-7 sm:p-9">
+      <p class="font-display text-3xl text-earth">¿Tienes una propuesta formativa?</p>
+      <p class="mt-4 text-[#644b3e]">Consulta las modalidades de colaboración y envíame los datos de tu proyecto desde la página de contacto.</p>
+      <a href="/contacto/" class="mt-7 inline-flex min-h-11 items-center rounded-full bg-terracotta px-5 py-3 font-semibold text-white no-underline transition-colors hover:bg-clay">Ir a contacto <span class="ml-2" aria-hidden="true">→</span></a>
+    </aside>
+  </section>
+</BaseLayout>
+
+

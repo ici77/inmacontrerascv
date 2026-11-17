@@ -1,0 +1,47 @@
+---
+const path = Astro.url.pathname;
+const links = [
+  { href: '/experiencia/', label: 'Experiencia' },
+  { href: '/formacion/', label: 'Formación' },
+  { href: '/devcampus/', label: 'DevCampus' },
+];
+---
+<header class="border-b border-[#d9c2a3]/70 bg-[#f7f1e8]/95">
+  <div class="container flex min-h-20 items-center justify-between gap-2 sm:gap-4 lg:gap-6">
+    <a href="/" class="shrink-0 whitespace-nowrap font-display text-lg font-semibold no-underline sm:text-2xl">Inma <span class="text-terracotta">Contreras</span></a>
+    <nav aria-label="Principal" class="hidden items-center gap-5 text-sm lg:flex">
+      {links.map((link) => <a href={link.href} aria-current={path === link.href ? 'page' : undefined} class="no-underline hover:text-clay">{link.label}</a>)}
+    </nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <details class="relative lg:hidden">
+        <summary
+          aria-label="Menú de navegación"
+          class="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-earth px-3 text-sm font-semibold text-earth hover:bg-beige [&::-webkit-details-marker]:hidden"
+        >
+          <span aria-hidden="true" class="text-lg leading-none">☰</span>
+          <span class="hidden min-[360px]:inline">Menú</span>
+        </summary>
+        <nav
+          aria-label="Principal"
+          class="absolute right-0 z-20 mt-2 grid min-w-56 gap-1 rounded-xl border border-sand bg-cream p-2 text-sm shadow-lg"
+        >
+          {links.map((link) => (
+            <a
+              href={link.href}
+              aria-current={path === link.href ? 'page' : undefined}
+              class="rounded-lg px-3 py-2 font-semibold no-underline hover:bg-beige"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </details>
+      <a
+        href="/contacto/"
+        class="rounded-full bg-earth px-3 py-2 text-sm font-semibold text-cream no-underline hover:bg-clay sm:px-4"
+      >
+        Contacto
+      </a>
+    </div>
+  </div>
+</header>
